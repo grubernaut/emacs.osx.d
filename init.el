@@ -14,6 +14,7 @@
         init-appearance
         init-completion
         init-crontab
+        init-crystal
         init-deft
         init-defuns
         init-docker
