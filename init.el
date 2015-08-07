@@ -10,7 +10,6 @@
 
 	;; These all use the (quelpa) form.
         init-ack
-        init-ansi
         init-anzu
         init-appearance
         init-completion
