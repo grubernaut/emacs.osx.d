@@ -18,6 +18,7 @@
 (setq initial-scratch-message nil)
 
 (menu-bar-mode -1)
+(toggle-scroll-bar -1)
 
 (global-auto-revert-mode 1)
 (setq require-final-newline t)
