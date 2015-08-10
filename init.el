@@ -20,6 +20,7 @@
         init-docker
         init-expand-region
         init-flycheck
+        init-go
         init-groovy
         init-haskell
         init-ido
@@ -50,9 +51,11 @@
   (server-start))
 (setq custom-file "~/.emacs.d/init/init-custom.el")
 (load custom-file)
+(setq exec-path (cons "/usr/local/go/bin" exec-path))
 (eval-after-load "go-mode"
   '(progn
      (setq gofmt-command "goimports")
      ;; Run Go in Current Buffer
      (define-key go-mode-map (kbd "C-x x") 'go-run)
-     (add-hook 'before-save-hook #'gofmt-before-save)))
+     (add-to-list 'exec-path "/Users/grubernaut/dev/go/bin")
+     (add-hook 'before-save-hook 'gofmt-before-save)))

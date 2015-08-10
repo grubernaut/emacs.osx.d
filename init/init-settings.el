@@ -19,6 +19,8 @@
 
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
 
 (global-auto-revert-mode 1)
 (setq require-final-newline t)
