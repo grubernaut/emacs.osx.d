@@ -42,6 +42,7 @@
         init-session
         init-settings
         init-snippets
+        init-tf
         init-yaml
         init-web
         init-winnumbers
