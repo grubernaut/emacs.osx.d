@@ -14,7 +14,6 @@
         init-appearance
         init-completion
         init-crontab
-        init-crystal
         init-deft
         init-defuns
         init-docker
@@ -58,5 +57,4 @@
      (setq gofmt-command "goimports")
      ;; Run Go in Current Buffer
      (define-key go-mode-map (kbd "C-x x") 'go-run)
-     (add-to-list 'exec-path "/Users/grubernaut/dev/go/bin")
      (add-hook 'before-save-hook 'gofmt-before-save)))
