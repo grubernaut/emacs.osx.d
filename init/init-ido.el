@@ -33,7 +33,8 @@
             (define-key ido-completion-map (kbd "M-n") 'ido-next-match)
             (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
             (define-key ido-completion-map (kbd "M-p") 'ido-prev-match)
-            (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)))
+            (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
+            (define-key ido-completion-map (kbd "C-l") 'ido-delete-backward-updir)))
 
 
 (require 'ido-ubiquitous)
