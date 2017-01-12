@@ -3,10 +3,17 @@ emacs.d
 
 Emacs Configuration
 
-Originally forked and began to diverge from [fujin](https://github.com/fujin)'s emacs config [here](https://github.com/fujin/emacsdotd)
+Install:
 
-Add irc password in ~/.private.el such that, 
 ```
-(setq freenode-password "secret things")
+# Backup existing emacs config if needed
+git clone https://github.com/grubernaut/emacs.osx.d ~/.emacs.d/
 ```
 
+On a fresh install of Emacs, may have to install `let-alist` from the `package-menu`.
+```
+M-x list-packages
+C-s let-alist
+i  ;;Mark package for installation
+x  ;;Download and install package from ELPA
+```
