@@ -61,3 +61,8 @@
      (set (make-local-variable 'company-backends) '(company-go))
      (company-mode)
      (add-hook 'before-save-hook 'gofmt-before-save)))
+
+(eval-after-load "org"
+  '(progn
+     (define-key org-mode-map (kbd "C-x RET") 'grub/org-new-tf-issue)
+     (define-key org-mode-map (kbd "C-x k") 'grub/org-sort-todo)))

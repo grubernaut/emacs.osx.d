@@ -25,7 +25,7 @@
   (let ((issue (read-string "Enter Github Issue: "))
         (desc (read-string "Enter Description: ")))
     (org-insert-todo-heading-respect-content)
-    (insert " #"issue" - "desc" (https://github.com/hashicorp/terraform/issues/"issue") [/]")
+    (insert "#"issue" - "desc" (https://github.com/hashicorp/terraform/issues/"issue") [/]")
     (insert "\n\t- [ ] Write Code")
     (insert "\n\t- [ ] Write Tests")
     (insert "\n\t- [ ] Submit PR")
@@ -33,8 +33,29 @@
     (org-update-statistics-cookies 'ALL)
     (outline-previous-heading)
     (org-cycle)
-  ))
+    ))
 
-(eval-after-load "org-mode"
-  '(progn
-     (define-key org-mode-map (kbd "C-x RET") 'grub/org-new-tf-issue)))
+(defun grub/org-sort-todo ()
+  (interactive)
+  (beginning-of-buffer)
+  (org-sort-entries nil ?f #'grub/org-sort-key)
+  (org-global-cycle)
+  )
+
+(defun todo-to-int (todo)
+  (first (-non-nil
+          (mapcar (lambda (keywords)
+                    (let ((todo-seq
+                           (-map (lambda (x) (first (split-string  x "(")))
+                                 (rest keywords))))
+                      (cl-position-if (lambda (x) (string= x todo)) todo-seq)))
+                  org-todo-keywords))))
+
+(defun grub/org-sort-key ()
+  (let* ((todo-max (apply #'max (mapcar #'length org-todo-keywords)))
+         (todo (org-entry-get (point) "TODO"))
+         (todo-int (if todo (todo-to-int todo) todo-max))
+         (priority (org-entry-get (point) "PRIORITY"))
+         (priority-int (if priority (string-to-char priority) org-default-priority)))
+    (format "%03d %03d" todo-int priority-int)
+    ))
