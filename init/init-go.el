@@ -13,8 +13,15 @@
 (exec-path-from-shell-copy-env "PATH")
 (exec-path-from-shell-copy-env "GOROOT")
 
-; Go-test keybindings for great profit
-(define-key go-mode-map (kbd "C-x f") 'go-test-current-file)
-(define-key go-mode-map (kbd "C-x t") 'go-test-current-test)
-(define-key go-mode-map (kbd "C-x p") 'go-test-current-project)
-(define-key go-mode-map (kbd "C-x x") 'go-run)
+(eval-after-load "go-mode"
+  '(progn
+     (setq gofmt-command "goimports")
+     ;; Run Go in Current Buffer
+     (define-key go-mode-map (kbd "C-x x") 'go-run)
+     (set (make-local-variable 'company-backends) '(company-go))
+     (company-mode)
+     (add-hook 'before-save-hook 'gofmt-before-save)
+     (define-key go-mode-map (kbd "C-x f") 'go-test-current-file)
+     (define-key go-mode-map (kbd "C-x t") 'go-test-current-test)
+     (define-key go-mode-map (kbd "C-x p") 'go-test-current-project)
+     (define-key go-mode-map (kbd "C-x x") 'go-run)))

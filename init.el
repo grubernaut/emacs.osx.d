@@ -31,6 +31,7 @@
         init-modeline
         init-multiterm
         init-neo
+        init-org
         init-parens
         init-php
         init-powerline
