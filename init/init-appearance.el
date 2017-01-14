@@ -13,3 +13,5 @@
 ;(load-theme 'wilson)
 ;(load-theme 'misterioso)
 (load-theme 'sanityinc-tomorrow-night t)
+
+(global-linum-mode)

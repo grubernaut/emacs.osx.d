@@ -55,12 +55,8 @@
 (setq exec-path (cons "/usr/local/go/bin" exec-path))
 (eval-after-load "go-mode"
   '(progn
-     (setq gofmt-command "goimports")
-     ;; Run Go in Current Buffer
-     (define-key go-mode-map (kbd "C-x x") 'go-run)
-     (set (make-local-variable 'company-backends) '(company-go))
-     (company-mode)
-     (add-hook 'before-save-hook 'gofmt-before-save)))
+     (setq gofmt-command "goimports")))
+;     (add-hook 'before-save-hook 'gofmt-before-save)
 
 (eval-after-load "org"
   '(progn

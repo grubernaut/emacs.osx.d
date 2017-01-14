@@ -6,6 +6,7 @@
 (quelpa 'gotest)
 ; for gopath, and goroot
 (quelpa 'exec-path-from-shell)
+(quelpa 'go-autocomplete)
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
@@ -24,4 +25,7 @@
      (define-key go-mode-map (kbd "C-x f") 'go-test-current-file)
      (define-key go-mode-map (kbd "C-x t") 'go-test-current-test)
      (define-key go-mode-map (kbd "C-x p") 'go-test-current-project)
-     (define-key go-mode-map (kbd "C-x x") 'go-run)))
+     (define-key go-mode-map (kbd "C-,") 'gofmt)
+     (require 'go-autocomplete)
+     (require 'auto-complete-config)
+     (ac-config-default)))
