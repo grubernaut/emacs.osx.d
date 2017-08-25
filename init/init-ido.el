@@ -1,7 +1,7 @@
 (provide 'init-ido)
 
 (quelpa 'ido-vertical-mode)
-(quelpa 'ido-ubiquitous)
+(quelpa 'ido-completing-read+)
 (quelpa 'smex)
 (smex-initialize)
 
@@ -37,11 +37,11 @@
             (define-key ido-completion-map (kbd "C-l") 'ido-delete-backward-updir)))
 
 
-(require 'ido-ubiquitous)
+(require 'ido-completing-read+)
 (ido-vertical-mode 1)
 (ido-mode t)
 ;; (ido-hacks-mode 1)
-(ido-ubiquitous-initialize)
+(ido-ubiquitous-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point nil)
 (setq ido-auto-merge-work-directories-length -1)
